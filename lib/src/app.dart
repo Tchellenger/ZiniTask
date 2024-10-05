@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:zini_task/src/homepage/homepage_view.dart';
 import 'package:zini_task/src/login/login_page_view.dart';
+import 'package:zini_task/src/provider/message_sync.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -32,9 +34,13 @@ class MyApp extends StatelessWidget {
               case LoginPageView.routeName:
                 return const LoginPageView();
               case HomePageView.routeName:
-                return const HomePageView();
+                return ChangeNotifierProvider(
+                  create: (context) => MessageSync(),
+                  child: const HomePageView());
               default:
-                return const LoginPageView();
+                return ChangeNotifierProvider(
+                  create: (context) => MessageSync(),
+                  child: const HomePageView());
             }
           },
         );
