@@ -13,6 +13,9 @@ dependencies:
   dio: ^5.7.0
   avatar_glow: ^3.0.1
   provider: ^6.1.2
+  flutter_background_service: ^5.0.1
+  socket_io_client: ^3.0.0
+  flutter_local_notifications: ^17.2.3
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -22,7 +25,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true

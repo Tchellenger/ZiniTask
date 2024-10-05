@@ -6,12 +6,10 @@ import 'package:zini_task/src/homepage/homepage_view.dart';
 import 'package:zini_task/src/login/login_page_view.dart';
 import 'package:zini_task/src/provider/message_sync.dart';
 
-/// The Widget that configures your application.
 class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +36,7 @@ class MyApp extends StatelessWidget {
                   create: (context) => MessageSync(),
                   child: const HomePageView());
               default:
-                return ChangeNotifierProvider(
-                  create: (context) => MessageSync(),
-                  child: const HomePageView());
+                return const LoginPageView();
             }
           },
         );
