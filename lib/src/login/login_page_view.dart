@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zini_task/src/homepage/homepage_view.dart';
+import 'package:zini_task/src/login/login_controller.dart';
+import 'package:zini_task/src/login/login_service.dart';
 
 class LoginPageView extends StatefulWidget {
   const LoginPageView({super.key});
@@ -10,13 +13,19 @@ class LoginPageView extends StatefulWidget {
 }
 
 class _LoginPageViewState extends State<LoginPageView> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _keyController = TextEditingController();
+  final LoginController _loginController = LoginController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Image.asset('assets/images/amico.png'),
             const SizedBox(
               height: 15,
@@ -51,6 +60,7 @@ class _LoginPageViewState extends State<LoginPageView> {
                     height: 5,
                   ),
                   TextField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                       fillColor: const Color(0xFFD3D3D3),
                       filled: true,
@@ -89,6 +99,7 @@ class _LoginPageViewState extends State<LoginPageView> {
                     height: 5,
                   ),
                   TextField(
+                    controller: _keyController,
                     decoration: InputDecoration(
                       fillColor: const Color(0xFFD3D3D3),
                       filled: true,
@@ -109,7 +120,7 @@ class _LoginPageViewState extends State<LoginPageView> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      //TODO action
+                      _loginController.login(_emailController.text, _keyController.text, context);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF1976D2),
